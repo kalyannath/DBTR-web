@@ -10,6 +10,7 @@ const HomePage = () => {
         filter: null
     });
     const [images, setImages] = React.useState<any[]>([]);
+    const [openCarousal, setOpenCarousal] = React.useState<boolean>(false);
 
     useEffect(() => {
         console.log(activeEvent);
@@ -60,7 +61,7 @@ const HomePage = () => {
             <div className={styles.imageCardContainer}>
                 {images && images.map((image, index) => {
                     return (
-                        <ImageCard key={index} eventDetails={image.attributes}/>
+                        <ImageCard key={index} eventDetails={image.attributes} setOpenCarousal={setOpenCarousal}/>
                     )
                 })}
             </div>

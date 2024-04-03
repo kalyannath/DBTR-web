@@ -9,6 +9,12 @@
     transition: all 0.3s;
 }
 
+.imageCard:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
 .imageCard .image{
     height: 75%;
     display: flex;
