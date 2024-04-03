@@ -12,11 +12,20 @@
     justify-content: space-evenly;
     flex: 1;
     flex-wrap: wrap;
+    height: 100%;
 }
 
 .navbar .navItemsContainer .navItem {
     padding: 0.5rem 1rem;
     text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.navbar .navItemsContainer .activeNavItem {
+    border-bottom: 3px solid #ff0000;
 }
 
 .navItemLink {
@@ -42,7 +51,7 @@
 
 .navBtnContainer .navBtn {
     border: none;
-    border-radius: 5px;
+    border-radius: 2px;
     font-size: 1.2rem;
     cursor: pointer;
 }

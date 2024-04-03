@@ -5,6 +5,13 @@ import Router from "next/router";
 import { BsHeartFill } from "react-icons/bs";
 
 const Navbar = () => {
+
+    const [activeLink, setActiveLink] = React.useState<string>("/");
+
+    React.useEffect(() => {
+        console.log(Router.pathname);
+        setActiveLink(Router.pathname);
+    }, [Router.pathname]);
   return (
     <nav className={styles.navbar}>
         <a className={styles.navItemLink} onClick={() => Router.push("/")}>
@@ -14,10 +21,10 @@ const Navbar = () => {
             {
                 MenuItems.map((item, index) => {
                     return (
-                        <li key={index} className={styles.navItem}>
+                        <li key={index} className={`${styles.navItem} ${activeLink === item.url ? styles.activeNavItem : ""}`}>
                             <a 
                                 onClick={() => Router.push(item.url)} 
-                                className={styles.navItemLink}>
+                                className={`${styles.navItemLink}`}>
                                 {item.title}
                             </a>
                         </li>
