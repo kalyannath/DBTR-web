@@ -1,0 +1,69 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    background-color: #f8f9fa;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+
+.navbar .navItemsContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex: 1;
+    flex-wrap: wrap;
+}
+
+.navbar .navItemsContainer .navItem {
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+}
+
+.navItemLink {
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+.navItemLink:hover {
+    color: #ff0000;
+    cursor: pointer;
+}
+
+.navItemLink .logo {
+    margin: 0.1rem 2rem;
+    width: 4rem;
+}
+
+.navBtnContainer {
+    display: flex;
+    gap: 1rem;
+    padding: 0.5rem 1rem;
+}
+
+.navBtnContainer .navBtn {
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.navBtnContainer .csrBtn {
+    padding: 0.5rem 3rem;
+    background-color: #ffffff;
+    color: rgb(255, 0, 0);
+    border: 1px solid rgb(255, 0, 0);
+}
+
+.navBtnContainer .donateBtn {
+    padding: 0.5rem 1rem;
+    background-color: #ff0000;
+    color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.navBtnContainer .donateBtn .heartIcon {
+    color: white;
+}
