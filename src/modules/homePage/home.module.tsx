@@ -3,7 +3,7 @@ import styles from "./home.module.css";
 import { Events } from "@/assets/Props";
 import { getAllImages, getImagesByEvent } from "@/service/imageAPIsService";
 import ImageCard from "./imageCard.module";
-import Carousel from "./carousel.module";
+import BootstrapCarousel from "./carousel.module";
 
 const HomePage = () => {
     const [activeEvent, setActiveEvent] = React.useState<any>({
@@ -12,13 +12,18 @@ const HomePage = () => {
     });
     const [images, setImages] = React.useState<any[]>([]);
     const [openCarousal, setOpenCarousal] = React.useState<boolean>(false);
+    const [carouselStartItem, setCarouselStartItem] = React.useState<any>({
+        attributes: {
+            imgURL: "",
+            occassion: "",
+            date: new Date()
+        }
+    });
 
     useEffect(() => {
-        console.log(activeEvent);
         // call api to get images based on activeEvent
         if (activeEvent.title === "All") {
             getAllImages().then((resp: any) => {
-                console.log(resp.data);
                 setImages(resp.data);
             }).catch((error) => {
                 console.log(error);
@@ -27,7 +32,6 @@ const HomePage = () => {
             // get images based on activeEvent
             const encodedEventName = encodeURIComponent(activeEvent.filter);
             getImagesByEvent(encodedEventName).then((resp: any) => {
-                console.log(resp.data);
                 setImages(resp.data);
             }).catch((error) => {
                 console.log(error);
@@ -35,9 +39,17 @@ const HomePage = () => {
         }
     }, [activeEvent])
 
+    const handleCardClick = (image: any) => {
+        setOpenCarousal(true);
+        setCarouselStartItem(image);
+    }
+
     return (
         <div className={styles.homePageBody}>
-            {/* <Carousel /> */}
+            {openCarousal && <BootstrapCarousel 
+                carouselStartItem={carouselStartItem}
+                setOpenCarousal={setOpenCarousal}
+                images={images} />}
             <div className={styles.homePagePoster}>
                 <div className={styles.posterTitle}>
                     Our events gallery
@@ -63,7 +75,10 @@ const HomePage = () => {
             <div className={styles.imageCardContainer}>
                 {images && images.map((image, index) => {
                     return (
-                        <ImageCard key={index} eventDetails={image.attributes} setOpenCarousal={setOpenCarousal}/>
+                        <ImageCard key={index} 
+                            eventDetails={image.attributes} 
+                            handleCardClick={() => {handleCardClick(image)}}
+                        />
                     )
                 })}
             </div>

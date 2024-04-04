@@ -11,7 +11,7 @@ const ImageCard = ({ ...props }) => {
     };
 
     return (
-        <div className={styles.imageCard} onClick={() => {props.setOpenCarousal(true)}}>
+        <div className={styles.imageCard} onClick={() => {props.handleCardClick()}}>
             <div className={styles.image}>
                 <img src={props.eventDetails.imgURL} alt="event" className={styles.imageCardPic}/>
             </div>
