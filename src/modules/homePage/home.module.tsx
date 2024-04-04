@@ -3,6 +3,7 @@ import styles from "./home.module.css";
 import { Events } from "@/assets/Props";
 import { getAllImages, getImagesByEvent } from "@/service/imageAPIsService";
 import ImageCard from "./imageCard.module";
+import Carousel from "./carousel.module";
 
 const HomePage = () => {
     const [activeEvent, setActiveEvent] = React.useState<any>({
@@ -36,6 +37,7 @@ const HomePage = () => {
 
     return (
         <div className={styles.homePageBody}>
+            {/* <Carousel /> */}
             <div className={styles.homePagePoster}>
                 <div className={styles.posterTitle}>
                     Our events gallery

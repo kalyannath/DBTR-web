@@ -1,6 +1,6 @@
 import Header from "@/components/header";
-// import "@/styles/globals.css";
 import "../styles/globals.css";
+import 'bootstrap/dist/css/bootstrap.css';
 import type { AppProps } from "next/app";
 import Footer from "@/components/footer";
 
